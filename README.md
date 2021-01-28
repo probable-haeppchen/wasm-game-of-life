@@ -4,50 +4,38 @@ An implementation of the *Game of Life* ([John Horton Conway](https://en.wikiped
 
 This implementation is a realisation of a tutorial published in [*The Rust and WebAssembly Book*](https://rustwasm.github.io/docs/book/) (Aaron Turon).
 
-## Building the Crate with *Rust* and `wasm-pack`
+## Development Environment
 
-Although this step is automatically handled by `wasm-pack-plugin` in the `webpack` build, it is helpful to manually verify that the *Rust* crate builds correctly and that `wasm-pack` produces sane output prior to invoking `webpack`.
+- The *Rust* tool-chain
+- `wasm-pack`
+- *Node.js* and `npm`
+  - `yarn` (optional)
 
-```
-wasm-pack build --dev
-```
+## Building and Serving
 
-or
+For convenience, `npm` scripts have been included in [`package.json`](./package.json) for building the browser content and serving it with `webpack-dev-server`.
 
-```
-wasm-pack build --release
-```
-
-## Installing Prerequisites from the `npm` Repositories
+Prior to executing any of the included scripts, install required packages from the `npm` repository using either of the following:
 
 ```
+npm install
 yarn install
 ```
 
-## Building the Browser Content with `webpack`
+The following four scripts are provided:
 
-This optional step is useful to verify that the `webpack` build passes.
+| Script |       |       |      |
+| :---:  | :---: | :---: | :--- |
+| `build` | build | `development` | Build *debug* or *development* artefacts to `./dist/`.
+| `release` | build | `production` | Build *release* or *production* artefacts to `./dist/`.
+| `serve` | `webpack-dev-server` | `development` | Build in *debug* or *development* mode and *serve* content on port `8080` with `webpack-dev-server`.
+| `stage` | `webpack-dev-server` | `production` | Build in *release* or *production* mode and *serve* content on port `8080` with `webpack-dev-server`.
 
-```
-npx webpack --mode development
-```
-
-or
-
-```
-npx webpack --mode production
-```
-
-## Serving with `webpack-dev-server`
+Any of the above scripts may be executed with either `npm` or `yarn`. For example:
 
 ```
-npx webpack-dev-server --mode development
-```
-
-or
-
-```
-npx webpack-dev-server --mode production
+npm run serve
+yarn serve
 ```
 
 ## Cleaning up Build Artefacts
