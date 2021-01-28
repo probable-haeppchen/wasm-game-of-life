@@ -15,7 +15,7 @@
     "webpack-cli": "^3",
     "webpack-dev-server": "^3",
     "copy-webpack-plugin": "^4",
-    "@wasm-tool/wasm-pack-plugin": "^0.2.3"
+    "@wasm-tool/wasm-pack-plugin": "^1"
   },
 
   "dependencies": {}
