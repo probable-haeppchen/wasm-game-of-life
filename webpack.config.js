@@ -10,11 +10,17 @@ module.exports = {
         filename: "bootstrap.js",
     },
     plugins: [
-        new CopyWebpackPlugin(['index.html']),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './index.html' },
+            ],
+        }),
         new WasmPackPlugin({
             crateDirectory: path.resolve(__dirname, "."),
             outName: 'wasm_game_of_life',
         }),
     ],
-    mode: 'development'
+    experiments: {
+        syncWebAssembly: true,
+    },
 };
